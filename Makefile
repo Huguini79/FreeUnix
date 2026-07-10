@@ -11,6 +11,7 @@ QEMU = qemu-system-x86_64
 
 all:
 	clear
+	mkdir -p build
 	$(AS) arch/x86/ioport.asm -o build/ioport.asm.o
 	$(AS) entry.asm -o build/entry.asm.o
 
