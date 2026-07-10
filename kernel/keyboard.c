@@ -3,6 +3,7 @@
 #include "include/sched.h"
 #include "include/signal.h"
 #include "include/string.h"
+#include "include/console.h"
 
 #include <stdbool.h>
 
@@ -13,6 +14,11 @@ void addCharacter(char c)
 {
     keyboard_buffer[pos++] = c;
     keyboard_buffer[pos] = '\0';
+}
+
+void delCharacter()
+{
+    keyboard_buffer[pos--] = '\0';
 }
 
 bool ctrl_pressed = false;
@@ -70,6 +76,8 @@ void keyboard_handler_ext()
     if (scancode == 0x35) {printk("/"); addCharacter('/');}
     if (scancode == 0x27) {printk(";"); addCharacter(';');}
     if (scancode == 0x0F) {printk("     "); addCharacter(' ');}
+
+    if (scancode == 0x0E) {del();delCharacter();}
 
     if (scancode == 0x1D)
     {

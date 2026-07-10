@@ -1,5 +1,6 @@
 #include "include/sched.h"
 #include "include/gdt.h"
+#include "include/signal.h"
 
 #define CODE_SELECTOR 0x08
 #define DATA_SELECTOR 0x10
@@ -35,8 +36,8 @@ struct task_struct* initProc(long pid, void* eip)
     newTask->tss.ebx = 0;
     long* stack = (long*)0x3FF00 + pid * 8192;
     stack--;
-    *stack = blank;
-    newTask->tss.esp = stack;
+    *stack = (long)blank;
+    newTask->tss.esp = (long)stack;
     newTask->tss.ebp = 0;
     newTask->tss.esi = 0;
     newTask->tss.edi = 0;

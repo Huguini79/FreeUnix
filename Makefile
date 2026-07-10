@@ -1,6 +1,6 @@
 TARGET = FreeUnix.iso
 
-CC_FLAGS = -c -I./ -m32 -ffreestanding -nostdlib
+CC_FLAGS = -c -I./ -m32 -ffreestanding -nostdlib -fno-stack-protector
 AS_FLAGS = -f elf32
 LD_FLAGS = -m elf_i386 -T linker.ld -o iso/boot/kernel build/traps.o build/keyboard.o build/printk.o build/gdt.o build/pic.o build/ioport.asm.o build/main.o build/console.o build/panic.o build/entry.asm.o build/sched.o build/signal.o build/alarm.o
 

@@ -2,6 +2,7 @@
 #include "include/console.h"
 #include "include/printk.h"
 #include "include/gdt.h"
+#include "include/alarm.h"
 #include "include/traps.h"
 #include "include/pic.h"
 #include "include/sched.h"

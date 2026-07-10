@@ -3,6 +3,7 @@
 
 void ConsoleInstall();
 void put_c(char c);
+void del();
 void clear();
 
 #endif

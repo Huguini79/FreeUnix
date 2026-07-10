@@ -2,6 +2,7 @@
 #include <stddef.h>
 
 #include "include/console.h"
+#include "include/ioport.h"
 
 #define VGA_WIDTH 80
 #define VGA_HEIGHT 25
@@ -40,6 +41,16 @@ void ConsoleInstall()
 {
     video_mem = (unsigned short*)0xB8000;
     clear();
+}
+
+void del()
+{
+    if (x > 2)
+    {
+        x--;
+        update_cursor(x, y);
+        video_mem[(y * VGA_WIDTH) + x] = 0x0F << 8 | ' ';
+    }
 }
 
 // void scroll()

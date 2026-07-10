@@ -6,6 +6,7 @@
 #include "include/keyboard.h"
 #include "include/signal.h"
 #include "include/alarm.h"
+#include "include/panic.h"
 
 struct Idt
 {
